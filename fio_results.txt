@@ -1,0 +1,73 @@
+8k blocks:
+
+random-write-steady: (g=0): rw=randwrite, bs=(R) 8192B-8192B, (W) 8192B-8192B, (T) 8192B-8192B, ioengine=libaio, iodepth=32
+...
+fio-3.12
+Starting 4 processes
+Jobs: 1 (f=1): [_(2),f(1),_(1)][100.0%][eta 00m:00s]                
+random-write-steady: (groupid=0, jobs=4): err= 0: pid=4297: Fri May 10 13:47:22 2019
+  Description  : [Random write steady state phase]
+  write: IOPS=121k, BW=941MiB/s (987MB/s)(179GiB/194523msec); 0 zone resets
+    slat (usec): min=2, max=4453, avg= 9.51, stdev= 6.54
+    clat (usec): min=124, max=23425, avg=1049.76, stdev=1234.71
+     lat (usec): min=127, max=23429, avg=1059.41, stdev=1235.14
+    clat percentiles (usec):
+     |  1.00th=[  578],  5.00th=[  603], 10.00th=[  644], 20.00th=[  742],
+     | 30.00th=[  775], 40.00th=[  791], 50.00th=[  799], 60.00th=[  807],
+     | 70.00th=[  824], 80.00th=[  889], 90.00th=[ 1418], 95.00th=[ 1926],
+     | 99.00th=[ 6194], 99.50th=[11600], 99.90th=[15795], 99.95th=[16909],
+     | 99.99th=[18744]
+   bw (  KiB/s): min=  349, max=65772, per=1.02%, avg=9825.35, stdev=2713.55, samples=23442312
+   iops        : min=15664, max=46158, avg=30128.51, stdev=5222.32, samples=1551
+  lat (usec)   : 250=0.05%, 500=0.05%, 750=22.22%, 1000=60.66%
+  lat (msec)   : 2=12.22%, 4=2.88%, 10=1.28%, 20=0.63%, 50=0.01%
+  cpu          : usr=10.21%, sys=31.36%, ctx=8563841, majf=0, minf=183255
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,23442312,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+  WRITE: bw=941MiB/s (987MB/s), 941MiB/s-941MiB/s (987MB/s-987MB/s), io=179GiB (192GB), run=194523-194523msec
+
+Disk stats (read/write):
+  nvme0n1: ios=187/23442312, merge=0/0, ticks=290/23859531, in_queue=3027660, util=92.34%
+
+
+4k blocks:
+
+random-write-steady: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=32
+...
+fio-3.12
+Starting 4 processes
+Jobs: 1 (f=1): [f(1),_(3)][100.0%][eta 00m:00s]                    
+random-write-steady: (groupid=0, jobs=4): err= 0: pid=4080: Fri May 10 13:41:33 2019
+  Description  : [Random write steady state phase]
+  write: IOPS=235k, BW=919MiB/s (963MB/s)(179GiB/199380msec); 0 zone resets
+    slat (nsec): min=1849, max=565604, avg=5308.57, stdev=3055.80
+    clat (usec): min=39, max=19996, avg=537.70, stdev=658.34
+     lat (usec): min=41, max=20002, avg=543.09, stdev=658.47
+    clat percentiles (usec):
+     |  1.00th=[  289],  5.00th=[  318], 10.00th=[  371], 20.00th=[  396],
+     | 30.00th=[  404], 40.00th=[  408], 50.00th=[  412], 60.00th=[  416],
+     | 70.00th=[  420], 80.00th=[  523], 90.00th=[  676], 95.00th=[  996],
+     | 99.00th=[ 3032], 99.50th=[ 4146], 99.90th=[11076], 99.95th=[13173],
+     | 99.99th=[16057]
+   bw (  KiB/s): min=  204, max=104861, per=0.99%, avg=9328.78, stdev=2399.13, samples=46884624
+   iops        : min= 6986, max=79826, avg=58788.41, stdev=6372.61, samples=1592
+  lat (usec)   : 50=0.01%, 100=0.01%, 250=0.12%, 500=78.99%, 750=12.44%
+  lat (usec)   : 1000=3.50%
+  lat (msec)   : 2=3.08%, 4=1.33%, 10=0.41%, 20=0.12%
+  cpu          : usr=12.12%, sys=34.85%, ctx=13759560, majf=0, minf=366425
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,46884624,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+  WRITE: bw=919MiB/s (963MB/s), 919MiB/s-919MiB/s (963MB/s-963MB/s), io=179GiB (192GB), run=199380-199380msec
+
+Disk stats (read/write):
+  nvme0n1: ios=187/46884624, merge=0/0, ticks=371/23552744, in_queue=1488544, util=93.31%
